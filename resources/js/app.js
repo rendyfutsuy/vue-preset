@@ -44,6 +44,6 @@ Vue.component('v-select', vSelect);
 new Vue({
     el: '#app',
     data: {
-        users: 'gundam',
+        apiUrl: 'https://jsonplaceholder.typicode.com/',
     },
 });
