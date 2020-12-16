@@ -13,6 +13,11 @@
             </div>
         </div>
 
+        <user-select-filter
+            class="my-4"
+            v-on:request-new-list="fetchPostBasedOnUser"
+        ></user-select-filter>
+
         <div class="px-3">
             <h3 class="text-gray-800"> <i class="fas fa-archive"></i> Post List</h3>
 
@@ -60,11 +65,13 @@
 
 <script>
     import DetailModal from '../Post/Modals/Detail.vue';
+    import UserSelectFilter from '../UserSelectFilter.vue';
 
     export default {
         name: 'PostList',
         components: {
             DetailModal,
+            UserSelectFilter,
         },
         data() {
             return {
@@ -82,6 +89,16 @@
             fetchPosts: function() {
                 axios.get(this.$apiUrl+'posts').then(response => {
                     this.posts = response.data;
+                });
+            },
+
+            fetchPostBasedOnUser: function(id) {
+                this.posts = [];
+
+                axios.get(this.$apiUrl+'users/' + id + '/posts').then(response => {
+                    this.posts = response.data;
+                    this.$refs.ShowDetail.getUserData(id);
+                    this.$store.commit('updateUserId', id);
                 });
             },
 
