@@ -39,6 +39,7 @@ import 'chart.js/dist/Chart.js';
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('user-list', require('./components/User/List.vue').default);
 Vue.component('post-list', require('./components/Post/List.vue').default);
+Vue.component('todo-list', require('./components/Todo/List.vue').default);
 Vue.component('v-select', vSelect);
 
 /** Vuex Storage */
