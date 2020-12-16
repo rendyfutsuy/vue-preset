@@ -2,27 +2,40 @@
     <div>
         <base-modal :id="`modal-${id}`" class="fade" dialog-class="modal-dialog-centered">
             <template v-slot:header>
-                <header-modal title="<span class='text-vue' ><i class='fas fa-map-marked-alt'> User Full Address </span>"> </header-modal>
+                <header-modal title="<span class='text-vue' ><i class='fas fa-user-circle'> User Full Profile </span>"> </header-modal>
             </template>
             <table class="table">
                 <tr>
-                    <td>City</td>
-                    <td>{{ address.city}}</td>
+                    <td>Name</td>
+                    <td>{{ detail.name}}</td>
                 </tr>
 
                 <tr>
-                    <td>Address</td>
-                    <td>{{ address.street}}</td>
+                    <td>Username</td>
+                    <td>{{ detail.username}}</td>
                 </tr>
 
                 <tr>
-                    <td>Zip</td>
-                    <td>{{ address.zipcode}}</td>
+                    <td>E-mail</td>
+                    <td>{{ detail.email}}</td>
                 </tr>
 
                 <tr>
-                    <td>Suite</td>
-                    <td>{{ address.suite}}</td>
+                    <td>Phone Number</td>
+                    <td>{{ detail.phone}}</td>
+                </tr>
+
+                <tr>
+                    <td>Web Url</td>
+                    <td>{{ detail.website}}</td>
+                </tr>
+
+                <tr v-if="detail.company">
+                    <td>Company</td>
+                    <td class="font-weight-bold">
+                        {{ detail.company.name}} <br>
+                        <sup class="font-weight-light">{{ detail.company.catchPhrase}}</sup>
+                    </td>
                 </tr>
             </table>
             <div class="mt-4 d-flex justify-content-between">
@@ -31,7 +44,7 @@
                     class="btn btn-lg text-vue border bg-white w-100"
                     data-dismiss="modal"
                 >
-                    Tutup
+                    Close
                 </button>
             </div>
         </base-modal>
@@ -43,13 +56,13 @@ import BaseModal from '../../Partials/Modal/BaseModal.vue';
 import HeaderModal from '../../Partials/Modal/Header.vue';
 
 export default {
-    name: 'UserAddress',
+    name: 'UserDetail',
     components: {
         BaseModal,
         HeaderModal
     },
     props: {
-        address: {
+        detail: {
             defauit: null,
         },
         id: {

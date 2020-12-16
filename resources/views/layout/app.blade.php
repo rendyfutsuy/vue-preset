@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm row">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <a class="navbar-brand mx-4" href="{{ url('/') }}">
                 <img src="https://vuejs.org/images/logo.png" height="50px">
                 <span class="font-weight-bold"> Vue.js <sub class="font-weight-light">feat Laravel</sub></span>

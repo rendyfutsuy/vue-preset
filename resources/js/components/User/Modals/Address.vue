@@ -31,7 +31,7 @@
                     class="btn btn-lg text-vue border bg-white w-100"
                     data-dismiss="modal"
                 >
-                    Tutup
+                    Close
                 </button>
             </div>
         </base-modal>

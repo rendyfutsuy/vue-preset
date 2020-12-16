@@ -43,17 +43,22 @@ Vue.component('v-select', vSelect);
 /** Vuex Storage */
 export const store = new Vuex.Store({
     state: {
-        userId: ''
+        userId: '',
+        users: []
     },
 
     mutations: {
-        change(state, userId) {
+        updateUserId(state, userId) {
             state.userId = userId;
-        }
+        },
+        updateUsers(state, users) {
+            state.users = users;
+        },
     },
 
     getters: {
-        userId: state => state.userId
+        userId: state => state.userId,
+        users: state => state.users,
     }
 });
 
