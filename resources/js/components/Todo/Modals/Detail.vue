@@ -16,7 +16,7 @@
                 </tr>
 
                 <tr>
-                    <td>Status</td>
+                    <td>Photo's quantity</td>
                     <td>{{ isCompleted(detail.completed) }}</td>
                 </tr>
             </table>
@@ -49,7 +49,7 @@ import BaseModal from '../../Partials/Modal/BaseModal.vue';
 import HeaderModal from '../../Partials/Modal/Header.vue';
 
 export default {
-    name: 'UserDetail',
+    name: 'TodoDetail',
     components: {
         BaseModal,
         HeaderModal

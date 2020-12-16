@@ -49,7 +49,7 @@ import BaseModal from '../../Partials/Modal/BaseModal.vue';
 import HeaderModal from '../../Partials/Modal/Header.vue';
 
 export default {
-    name: 'UserDetail',
+    name: 'PostDetail',
     components: {
         BaseModal,
         HeaderModal
