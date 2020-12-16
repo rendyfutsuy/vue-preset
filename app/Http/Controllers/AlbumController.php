@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class AlbumController extends Controller
 {
     public function list(Request $request)
     {
-        return view('user.list');
+        return view('album.list');
     }
 
-    public function user(Request $request, $user)
+    public function album(Request $request, $album)
     {
-        return view('user.detail');
+        return view('album.detail');
     }
 }

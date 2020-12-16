@@ -5,6 +5,11 @@
     body {
     margin:0
     }
+
+    .vue-color {
+        background: #41b883;
+    }
+    
     a {
     background-color:transparent
     }

@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class TodoController extends Controller
 {
     public function list(Request $request)
     {
-        return view('user.list');
+        return view('todo.list');
     }
 
-    public function user(Request $request, $user)
+    public function todo(Request $request, $todo)
     {
-        return view('user.detail');
+        return view('todo.detail');
     }
 }

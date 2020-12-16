@@ -9,11 +9,11 @@ class PostController extends Controller
 {
     public function list(Request $request)
     {
-        # code...
+        return view('post.list');
     }
 
     public function post(Request $request, $post)
     {
-        # code...
+        return view('post.detail');
     }
 }
