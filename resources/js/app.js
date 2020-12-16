@@ -7,10 +7,14 @@
 require('./bootstrap');
 
 import Vue from 'vue';
+import Vuex from 'vuex';
+
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
 import vSelect from 'vue-select';
 
+// Install Vuex
+Vue.use(Vuex)
 // Install BootstrapVue
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
@@ -36,15 +40,35 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('user-list', require('./components/User/List.vue').default);
 Vue.component('v-select', vSelect);
 
+/** Vuex Storage */
+export const store = new Vuex.Store({
+    state: {
+        userId: ''
+    },
+
+    mutations: {
+        change(state, userId) {
+            state.userId = userId;
+        }
+    },
+
+    getters: {
+        userId: state => state.userId
+    }
+});
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.prototype.$apiUrl = 'https://jsonplaceholder.typicode.com/';
 
 new Vue({
     el: '#app',
+    store,
     data: {
-        apiUrl: 'https://jsonplaceholder.typicode.com/',
+        // apiUrl: 'https://jsonplaceholder.typicode.com/',
     },
 });

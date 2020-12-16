@@ -27,16 +27,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>otto</td>
-                        <td>email@mdo.com</td>
+                    <tr v-for="(user, index) in users" :key="'user-'+index">
+                        <th scope="row">{{ index + 1}}</th>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
                         <td>
-                            <button class="btn btn-lg text-white bg-vue"> <abbr title="Post List"> <i class="fas fa-archive"></i> </abbr></button>
-                            <button class="btn btn-lg text-white bg-vue" v-on:click="showAddress(address)"> <abbr title="User/'s Address"> <i class="fas fa-map"></i> </abbr></button>
-                            <button class="btn btn-lg text-white bg-vue"> <abbr title="User/'s Albums"> <i class="fas fa-journal-whills"></i> </abbr></button>
-                            <button class="btn btn-lg text-white bg-vue"> <abbr title="User/'s Todos"> <i class="fas fa-list-alt"></i> </abbr></button>
+                            <button class="btn btn-lg text-white bg-vue" v-on:click="goToPostList(user.id)"> <abbr title="Post List"> <i class="fas fa-archive"></i> </abbr></button>
+                            <button class="btn btn-lg text-white bg-vue" v-on:click="showAddress(user.address)"> <abbr title="User/'s Address"> <i class="fas fa-map"></i> </abbr></button>
+                            <button class="btn btn-lg text-white bg-vue" v-on:click="goToAlbumList(user.id)"> <abbr title="User/'s Albums"> <i class="fas fa-journal-whills"></i> </abbr></button>
+                            <button class="btn btn-lg text-white bg-vue" v-on:click="goToTodoList(user.id)"> <abbr title="User/'s Todos"> <i class="fas fa-list-alt"></i> </abbr></button>
                         </td>
                     </tr>
                 </tbody>
@@ -69,13 +69,32 @@
             }
         },
         mounted() {
-            // 
+            this.fetchUsers();
         },
 
         methods: {
+            fetchUsers: function() {
+                axios.get(this.$apiUrl+'users').then(response => {
+                    this.users = response.data; 
+                });
+            },
             showAddress: function (address) {
                 this.address = address;
                 $('#modal-address-show').modal('show');
+            },
+
+            goToPostList: function(userId) {
+                this.setMyUserId(userId);
+            },
+            goToAlbumList: function(userId) {
+                this.setMyUserId(userId);
+            },
+            goToTodoList: function(userId) {
+                this.setMyUserId(userId);
+            },
+
+            setMyUserId: function (userId) {
+                this.$store.commit('change', userId);
             }
         }
     }
