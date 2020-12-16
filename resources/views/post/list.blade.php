@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="antialiased">
-    {{--  --}}
+    <post-list></post-list>
 </div>
 @endsection
 
