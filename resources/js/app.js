@@ -33,6 +33,7 @@ import 'chart.js/dist/Chart.js';
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('user-list', require('./components/User/List.vue').default);
 Vue.component('v-select', vSelect);
 
 /**
